@@ -1,10 +1,10 @@
 # config valid only for current version of Capistrano
 lock "3.8.0"
 
-server '188.166.155.252', port: 3030, roles: [:web, :app, :db], primary: true
+server '188.166.155.252', port: 22, roles: [:web, :app, :db], primary: true
 
 set :application,   "games_practice"
-set :repo_url,      "git@188.166.155.252:GregLinne/GamesPractice.git"
+set :repo_url,      "git@github.com:GregLinne/GamesPractice.git"
 set :user,           'root'
 set :puma_theards,  [4, 16]
 set :puma_workers,  0
@@ -26,7 +26,6 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.0.0-p247'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
@@ -51,7 +50,6 @@ namespace :puma do
     end
   end
 
-  before :start, :make_dirs
 end
 
 namespace :deploy do
