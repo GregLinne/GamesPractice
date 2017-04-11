@@ -5,7 +5,7 @@ server '188.166.155.252', port: 22, roles: [:web, :app, :db], primary: true
 
 set :application,   "games_practice"
 set :repo_url,      "git@github.com:GregLinne/GamesPractice.git"
-set :user,           'root'
+set :user,          'root'
 set :puma_theards,  [4, 16]
 set :puma_workers,  0
 
